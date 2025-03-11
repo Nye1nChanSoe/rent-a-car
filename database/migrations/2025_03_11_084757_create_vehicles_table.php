@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('license_plate');
             $table->string('make');
             $table->string('model');
-            $table->date('year');
-            $table->text('remarks');
+            $table->year('year');
+            $table->text('remarks')->nullable();
             $table->string('status');
             $table->timestamps();
         });
