@@ -24,11 +24,13 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'id' => Str::uuid(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'role' => fake()->randomElement(['admin', 'customer']),
+            'status' => fake()->randomElement(['active', 'inactive'])
         ];
     }
 
@@ -39,6 +41,16 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Indicate that the model's role should be admin
+     */
+    public function admin(): static
+    {
+        return $this->state([
+            'role' => 'admin',
         ]);
     }
 }
