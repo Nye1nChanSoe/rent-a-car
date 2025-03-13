@@ -9,9 +9,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @fluxAppearance
     </head>
-    <body class="bg-white dark:bg-neutral-800">
+    <body class="bg-white dark:bg-neutral-900">
         <livewire:navbar />
-        <main class="container mx-auto min-h-dvh p-6 border-x border-neutral-200 dark:border-neutral-700 ">
+        <main class="container mx-auto min-h-dvh border-x border-neutral-200 dark:border-neutral-700 ">
             {{ $slot }}
         </main>
         <livewire:footer />

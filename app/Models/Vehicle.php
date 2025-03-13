@@ -12,6 +12,15 @@ class Vehicle extends Model
     /** @use HasFactory<\Database\Factories\VehicleFactory> */
     use HasFactory, HasUuids;
 
+    protected $guarded = [];
+
+    protected function casts(): array
+    {
+        return [
+            'features' => 'array',
+        ];
+    }
+
     // relations
     public function rentals(): HasMany
     {

@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\AuthController;
-use App\Http\Controllers\auth\ForgotPasswordController;
-use App\Http\Controllers\auth\ResetPasswordController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('home'))->name('home');
@@ -20,3 +19,8 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->group(function() {
     Route::post('/sign-out', [AuthController::class, 'logout'])->name('logout');
 });
+
+/**
+ * Business Logic Routes
+ */
+Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
