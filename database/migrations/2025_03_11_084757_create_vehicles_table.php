@@ -13,12 +13,24 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('license_plate');
+            $table->string('license_plate')->unique();
+            $table->string('name');
             $table->string('make');
             $table->string('model');
             $table->year('year');
+            $table->string('color');
+            $table->string('category');
+            $table->string('image_url')->nullable();
+            $table->integer('seats');
+            $table->integer('luggage_capacity');
+            $table->enum('transmission', ['automatic', 'manual']);
+            $table->enum('fuel_type', ['petrol', 'diesel', 'electric', 'hybrid']);
+            $table->decimal('price_per_day', 10, 2);
+            $table->string('mileage');
+            $table->string('fuel_efficiency')->nullable();
             $table->text('remarks')->nullable();
             $table->string('status');
+            $table->json('features');
             $table->timestamps();
         });
     }
