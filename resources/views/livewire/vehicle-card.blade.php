@@ -1,11 +1,11 @@
 <div class="bg-white dark:bg-black shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02] border border-neutral-200 dark:border-neutral-700">
 
     <!-- Card Header -->
-    <div class="relative p-4">
-        <flux:button icon="information-circle" variant="subtle" size="sm" class="absolute top-3 left-3" wire:click="showDetails">
+    <flux:modal.trigger :name="'vehicle-detail-'.$vehicle->id" class="relative p-4">
+        <flux:button icon="information-circle" variant="subtle" size="sm" class="absolute top-3 left-3">
             Details
         </flux:button>
-    </div>
+    </flux:modal.trigger>
 
     <!-- Vehicle Image -->
     <img src="{{ asset('images/sedan.png') }}" class="w-full h-48 object-cover rounded-t-lg" />
@@ -24,12 +24,14 @@
         <!-- Price & Select Button -->
         <div class="mt-4 border-t pt-4">
             <div class="text-2xl font-bold text-primary">${{ number_format($vehicle->price_per_day, 2) }} <span class="text-sm">NZD</span></div>
-            <flux:button class="w-full mt-2" variant="primary" wire:click="showDetails">Select</flux:button>
+            <flux:modal.trigger :name="'vehicle-detail-'.$vehicle->id" class="relative p-4">
+                <flux:button class="w-full mt-2" variant="primary">Select</flux:button>
+            </flux:modal.trigger>
         </div>
     </div>
 
     <!-- Modal for Detailed View -->
-    <flux:modal wire:model="showModal">
+    <flux:modal :name="'vehicle-detail-'.$vehicle->id">
         <div>
             <h3 class="text-xl font-semibold">{{ $vehicle->name }} - {{ $vehicle->year }}</h3>
             <p class="text-sm text-zinc-500">{{ $vehicle->model }}</p>

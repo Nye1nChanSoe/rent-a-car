@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\RentACarController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,4 @@ Route::middleware('auth')->group(function() {
  * Business Logic Routes
  */
 Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
+Route::get('/rent-a-car', [RentACarController::class, 'index'])->name('rent-a-car.index');
