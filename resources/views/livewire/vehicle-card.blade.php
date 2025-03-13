@@ -8,7 +8,7 @@
     </flux:modal.trigger>
 
     <!-- Vehicle Image -->
-    <img src="{{ asset('images/sedan.png') }}" class="w-full h-48 object-cover rounded-t-lg" />
+    <img src="{{ asset('images/sedan.png') }}" class="w-full h-48 object-contain rounded-t-lg" />
 
     <!-- Vehicle Info -->
     <div class="p-4 text-center">
@@ -23,71 +23,57 @@
 
         <!-- Price & Select Button -->
         <div class="mt-4 border-t pt-4">
-            <div class="text-2xl font-bold text-primary">${{ number_format($vehicle->price_per_day, 2) }} <span class="text-sm">NZD</span></div>
+            <div class="text-2xl font-bold text-primary mb-4">${{ number_format($vehicle->price_per_day, 2) }} <span class="text-sm">NZD</span></div>
             <flux:modal.trigger :name="'vehicle-detail-'.$vehicle->id" class="relative p-4">
                 <flux:button class="w-full mt-2" variant="primary">Select</flux:button>
             </flux:modal.trigger>
         </div>
     </div>
 
-    <!-- Modal for Detailed View -->
-    <flux:modal :name="'vehicle-detail-'.$vehicle->id">
+    <!-- Modal -->
+    <flux:modal class="max-w-6xl" :name="'vehicle-detail-'.$vehicle->id">
         <div>
             <h3 class="text-xl font-semibold">{{ $vehicle->name }} - {{ $vehicle->year }}</h3>
             <p class="text-sm text-zinc-500">{{ $vehicle->model }}</p>
         </div>
 
-        <div>
-            <img src="{{ asset('images/sedan.png') }}" class="w-full h-64 object-cover rounded-lg" />
+        <div class="flex gap-x-20 flex-col md:flex-row">
+            <img src="{{ asset('images/sedan.png') }}" class="flex-1 w-full h-64 object-contain rounded-lg" />
 
-            <div class="mt-4 flex flex-wrap gap-2">
-                @foreach ($vehicle->features as $feature)
-                    <flux:badge>{{ $feature }}</flux:badge>
-                @endforeach
-            </div>
+            <div class="flex-1">
+                <div class="mt-4 flex flex-wrap gap-2">
+                    @foreach ($vehicle->features as $feature)
+                        <flux:badge>{{ $feature }}</flux:badge>
+                    @endforeach
+                </div>
 
-            <div class="mt-6">
-                <h4 class="text-lg font-semibold">Pricing Details</h4>
-                <div class="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-lg">
-                    <div class="flex justify-between">
-                        <span>Base Rate</span>
-                        <span>${{ number_format($vehicle->price_per_day - 20, 2) }}</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Tax</span>
-                        <span>${{ number_format($vehicle->price_per_day, 2) }}</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Insurance</span>
-                        <span>$10.00</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Cleaning Fee</span>
-                        <span>$5.00</span>
-                    </div>
-                    <div class="border-t mt-3 pt-3 font-bold text-lg flex justify-between">
-                        <span>Total</span>
-                        <span>${{ number_format($vehicle->price_per_day, 2) }}</span>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold">Pricing Details</h4>
+                    <div class="py-6 rounded-lg">
+                        <div class="flex justify-between">
+                            <span>Base Rate</span>
+                            <span>${{ number_format($vehicle->price_per_day - 20, 2) }}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Tax</span>
+                            <span>${{ number_format($vehicle->price_per_day, 2) }}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Insurance</span>
+                            <span>$10.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Cleaning Fee</span>
+                            <span>$5.00</span>
+                        </div>
+                        <div class="border-t mt-3 pt-3 font-bold text-lg flex justify-between">
+                            <span>Total</span>
+                            <span>${{ number_format($vehicle->price_per_day, 2) }}</span>
+                        </div>
                     </div>
                 </div>
+                <flux:button class="w-full" variant="primary">Proceed</flux:button>
             </div>
-
-            <!-- More Details -->
-            {{-- <flux:accordion class="mt-6">
-                <flux:accordion.item title="Specifications">
-                    <p>{{ $vehicle->remarks ?? 'No additional specifications available.' }}</p>
-                </flux:accordion.item>
-                <flux:accordion.item title="Terms and Conditions">
-                    <p>Full insurance and terms apply. Make sure to read the policies before booking.</p>
-                </flux:accordion.item>
-                <flux:accordion.item title="Additional Information">
-                    <p>Contact us for any special requests or more details.</p>
-                </flux:accordion.item>
-            </flux:accordion> --}}
-        </div>
-
-        <div>
-            <flux:button class="w-full" variant="primary">Proceed</flux:button>
         </div>
     </flux:modal>
 </div>

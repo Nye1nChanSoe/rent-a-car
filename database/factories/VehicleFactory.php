@@ -41,11 +41,11 @@ class VehicleFactory extends Factory
             'fuel_efficiency' => fake()->randomElement(['10 km/L', '15 km/L', '20 km/L', '25 km/L']),
             'remarks' => fake()->optional()->sentence(),
             'status' => fake()->randomElement(VehicleStatus::values()),
-            'features' => json_encode([
+            'features' => [
                 fake()->randomElement(['Bluetooth', 'GPS', 'Backup Camera', 'Heated Seats', 'Sunroof']),
                 fake()->randomElement(['Apple CarPlay', 'Android Auto', 'Blind Spot Monitoring', 'Leather Seats']),
                 fake()->randomElement(['Cruise Control', 'Lane Assist', 'Adaptive Headlights']),
-            ]),
+            ],
         ];
     }
 }

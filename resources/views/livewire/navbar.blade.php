@@ -85,6 +85,8 @@
     <div class="lg:hidden border-t border-neutral-200 dark:border-neutral-700" x-show="open" x-transition>
         <ul class="bg-white dark:bg-black space-y-2 p-4">
             <li><a href="/" class="block text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Home</a></li>
+            <li><a href="/rent-a-car" class="block text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Rent a car</a></li>
+            <li><a href="/vehicles" class="block text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Vehicles</a></li>
             <li><a href="/about" class="block text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">About</a></li>
             <li><a href="/contact" class="block text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a></li>
         </ul>

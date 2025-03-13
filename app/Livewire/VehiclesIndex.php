@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Enums\VehicleStatus;
 use App\Models\Vehicle;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -32,8 +33,9 @@ class VehiclesIndex extends Component
         $this->filterVehicles();
     }
 
-    public function updated(string $propertyName): void
+    public function updated($propertyName): void
     {
+        Log::info('why => '.$propertyName);
         $this->filterVehicles();
     }
 
@@ -53,11 +55,11 @@ class VehiclesIndex extends Component
             $query->where('fuel_type', strtolower($this->fuelType));
         }
 
-        if (!is_null($this->priceMin)) {
+        if (!empty($this->priceMin)) {
             $query->where('price_per_day', '>=', $this->priceMin);
         }
 
-        if (!is_null($this->priceMax)) {
+        if (!empty($this->priceMax)) {
             $query->where('price_per_day', '<=', $this->priceMax);
         }
 

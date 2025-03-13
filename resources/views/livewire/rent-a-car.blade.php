@@ -2,7 +2,7 @@
 
     <!-- Booking Form -->
     <div class="bg-white dark:bg-black p-6 shadow-md rounded-lg">
-        <flux:heading size="xl" class="mb-4">Book Your Ride</flux:heading>
+        <flux:heading size="xl" class="mb-4">Rent a car</flux:heading>
 
         <form wire:submit.prevent="filterAvailableVehicles" class="space-y-4">
             <flux:input wire:model.debounce.500ms="pickupLocation" label="Pickup Location" placeholder="Enter pickup location" required />
