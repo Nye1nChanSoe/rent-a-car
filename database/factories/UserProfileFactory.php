@@ -26,7 +26,7 @@ class UserProfileFactory extends Factory
             'phone' => fake()->phoneNumber(),
             'date_of_birth' => fake()->date(),
             'license_number' => strtoupper(fake()->regexify('[A-Z]{2}-\d{2}-\d{6}')),  # AB-23-123456
-            'is_verified' => fake()->boolean(),
+            'is_completed' => true,
         ];
     }
 }

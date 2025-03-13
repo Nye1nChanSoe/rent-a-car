@@ -1,4 +1,4 @@
-<nav class="bg-white dark:bg-black border-b border-neutral-200 dark:border-neutral-700 transition-colors duration-300">
+<nav x-data="{ open: false }" class="bg-white dark:bg-black border-b border-neutral-200 dark:border-neutral-700 transition-colors duration-300">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
         <!-- Logo -->
         <a href="/" class="text-xl font-bold text-gray-900 dark:text-white transition-colors">
@@ -16,7 +16,7 @@
                 </flux:button>
 
                 <flux:menu>
-                    <flux:menu.item icon="user" href="{{ route('home') }}">Home</flux:menu.item>
+                    <flux:menu.item icon="user" href="{{ route('profile') }}">Profile</flux:menu.item>
                     <flux:menu.item icon="log-out" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</flux:menu.item>
                 </flux:menu>
             </flux:dropdown>
@@ -29,7 +29,7 @@
                 <li><a href="{{ route('login') }}" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Sign In</a></li>
             </ul>
             @endauth
-            <flux:button wire:click="toggleMenu" variant="ghost" icon="menu" />
+            <flux:button x-on:click="open = !open" variant="ghost" icon="menu" />
         </div>
 
         <!-- Desktop Menu -->
@@ -65,7 +65,7 @@
                 </flux:button>
 
                 <flux:menu>
-                    <flux:menu.item icon="user" href="{{ route('home') }}">Home</flux:menu.item>
+                    <flux:menu.item icon="user" href="{{ route('profile') }}">Profile</flux:menu.item>
                     <flux:menu.item icon="log-out" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form-desktop').submit();">Logout</flux:menu.item>
                 </flux:menu>
             </flux:dropdown>
@@ -82,7 +82,7 @@
     </div>
 
     <!-- Mobile Dropdown -->
-    <div class="lg:hidden border-t border-neutral-200 dark:border-neutral-700" x-data="{ open: @entangle('isOpen') }" x-show="open" x-transition>
+    <div class="lg:hidden border-t border-neutral-200 dark:border-neutral-700" x-show="open" x-transition>
         <ul class="bg-white dark:bg-black space-y-2 p-4">
             <li><a href="/" class="block text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Home</a></li>
             <li><a href="/about" class="block text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">About</a></li>

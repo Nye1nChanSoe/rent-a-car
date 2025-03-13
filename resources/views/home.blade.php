@@ -1,5 +1,4 @@
 <x-layouts.app title="Home">
-    <livewire:test />
     <div class="relative w-full h-screen flex items-center justify-center bg-gradient-to-b from-zinc-900 to-black dark:bg-black text-white">
         <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('{{ asset('images/sedan.png') }}');"></div>
 

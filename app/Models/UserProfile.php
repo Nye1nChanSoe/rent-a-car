@@ -12,6 +12,8 @@ class UserProfile extends Model
     /** @use HasFactory<\Database\Factories\UserProfileFactory> */
     use HasFactory, HasUuids;
 
+    protected $guarded = [];
+
     // relations
     public function user(): BelongsTo
     {

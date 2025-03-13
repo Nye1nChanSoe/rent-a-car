@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('user_id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('phone');
-            $table->string('license_number');
-            $table->date('date_of_birth');
-            $table->boolean('is_verified')->default(false);
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('license_number')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->boolean('is_completed')->default(false);
             $table->timestamps();
 
             // references

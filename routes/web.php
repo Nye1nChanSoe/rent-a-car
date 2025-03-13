@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RentACarController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('home'))->name('home');
+Route::get('/about', fn() => view('about'))->name('about');
 
 Route::middleware('guest')->group(function() {
     Route::get('/sign-in', [AuthController::class, 'showLogin'])->name('login');
@@ -19,6 +21,7 @@ Route::middleware('guest')->group(function() {
 
 Route::middleware('auth')->group(function() {
     Route::post('/sign-out', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 });
 
 /**
