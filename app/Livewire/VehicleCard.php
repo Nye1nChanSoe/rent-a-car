@@ -32,6 +32,12 @@ class VehicleCard extends Component
 
     public function proceed(Vehicle $vehicle)
     {
+        if (!Auth::check())
+        {
+            $this->dispatch('show-toast', 'You need to log in before continue', 'info');
+            return redirect()->route('login');
+        }
+
         // check profile complete
         if (!Auth::user()->profile || !Auth::user()->profile->is_completed) {
             $this->dispatch('show-toast', 'Please complete the profile', 'info');

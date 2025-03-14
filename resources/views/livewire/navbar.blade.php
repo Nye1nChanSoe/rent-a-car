@@ -17,6 +17,7 @@
 
                 <flux:menu>
                     <flux:menu.item icon="user" href="{{ route('profile') }}">Profile</flux:menu.item>
+                    <flux:menu.item icon="car-front" href="{{ route('profile.rents') }}">Rents</flux:menu.item>
                     <flux:menu.item icon="log-out" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</flux:menu.item>
                 </flux:menu>
             </flux:dropdown>
@@ -66,6 +67,7 @@
 
                 <flux:menu>
                     <flux:menu.item icon="user" href="{{ route('profile') }}">Profile</flux:menu.item>
+                    <flux:menu.item icon="car-front" href="{{ route('profile.rents') }}">Rents</flux:menu.item>
                     <flux:menu.item icon="log-out" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form-desktop').submit();">Logout</flux:menu.item>
                 </flux:menu>
             </flux:dropdown>
