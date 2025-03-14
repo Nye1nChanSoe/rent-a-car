@@ -28,7 +28,7 @@ class ProfilePage extends Component
     public string $license_number = '';
 
     #[Validate('required | date')]
-    public $date_of_birth;
+    public ?string $date_of_birth = null;
 
     public function mount(): void
     {

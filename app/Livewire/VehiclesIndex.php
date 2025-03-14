@@ -35,13 +35,12 @@ class VehiclesIndex extends Component
 
     public function updated($propertyName): void
     {
-        Log::info('why => '.$propertyName);
         $this->filterVehicles();
     }
 
     public function filterVehicles(): void
     {
-        $query = Vehicle::query();
+        $query = Vehicle::query()->where('status', VehicleStatus::AVAILABLE->value);
 
         if ($this->category !== '') {
             $query->where('category', $this->category);

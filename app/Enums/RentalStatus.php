@@ -4,6 +4,7 @@ namespace App\Enums;
 
 enum RentalStatus: string
 {
+    case SELECTED = 'selected';
     case PENDING = 'pending';
     case APPROVED = 'approved';
     case REJECTED = 'rejected';

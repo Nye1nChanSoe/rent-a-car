@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <flux:button class="w-full" variant="primary">Proceed</flux:button>
+                <flux:button class="w-full" variant="primary" wire:click="proceed('{{ $vehicle->id }}')">Proceed</flux:button>
             </div>
         </div>
     </flux:modal>

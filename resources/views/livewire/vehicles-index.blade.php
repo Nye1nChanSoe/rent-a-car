@@ -2,7 +2,7 @@
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
              <!-- Filters -->
-            <div class="lg:col-span-1 shadow-md rounded-lg h-full">
+            <div class="lg:col-span-1 rounded-lg h-full">
                 <flux:heading size="lg" class="mb-4 text-zinc-800 dark:text-white">Filter Vehicles</flux:heading>
 
                 <div class="space-y-6">

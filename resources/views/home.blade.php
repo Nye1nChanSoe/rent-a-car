@@ -7,7 +7,7 @@
         <div class="absolute z-10 inset-0 bg-contain bg-no-repeat bg-right opacity-60 dark:opacity-25 transition-opacity duration-300 " 
             style="background-image: url('{{ asset('images/sedan.png') }}'); background-size: 55%;">
         </div>
-        <div class="relative z-20 pt-20 text-center max-w-3xl mx-auto px-6">
+        <div class="relative z-20 pt-32 text-center max-w-3xl mx-auto px-6">
             <flux:heading size="xl" class="font-extrabold uppercase md:text-4xl text-black dark:text-white drop-shadow-md">Drive Your Dream Car Today</flux:heading>
             <p class="text-lg text-zinc-700 dark:text-zinc-400 mt-4">
                 Experience luxury and comfort with our premium car rental service. 

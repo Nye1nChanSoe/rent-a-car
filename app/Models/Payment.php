@@ -12,6 +12,8 @@ class Payment extends Model
     /** @use HasFactory<\Database\Factories\PaymentFactory> */
     use HasFactory, HasUuids;
 
+    protected $guarded = [];
+
     // relations
     public function rental(): BelongsTo
     {

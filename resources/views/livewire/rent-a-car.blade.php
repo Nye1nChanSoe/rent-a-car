@@ -1,10 +1,10 @@
-<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-12">
 
     <!-- Booking Form -->
-    <div class="bg-white dark:bg-black p-6 shadow-md rounded-lg">
-        <flux:heading size="xl" class="mb-4">Rent a car</flux:heading>
+    <div class="rounded-lg col-span-1">
+        <flux:heading size="lg" class="mb-8">Rent a car</flux:heading>
 
-        <form wire:submit.prevent="filterAvailableVehicles" class="space-y-4">
+        <form wire:submit.prevent="filterAvailableVehicles" class="space-y-6">
             <flux:input wire:model.debounce.500ms="pickupLocation" label="Pickup Location" placeholder="Enter pickup location" required />
             <flux:input wire:model.debounce.500ms="dropoffLocation" label="Drop-off Location" placeholder="Enter drop-off location" required />
 
@@ -26,8 +26,8 @@
     </div>
 
     <!-- Vehicles List (Scrollable) -->
-    <div class="bg-white dark:bg-black p-6 shadow-md rounded-lg overflow-y-auto max-h-[600px]">
-        <flux:heading size="xl" class="mb-4">Available Vehicles</flux:heading>
+    <div class="rounded-lg md:ml-10 overflow-y-auto max-h-[600px] col-span-2">
+        <flux:heading size="lg" class="mb-8">Available Vehicles</flux:heading>
 
         @if(!empty($availableVehicles))
             <div class="space-y-4">
@@ -35,8 +35,6 @@
                     <livewire:vehicle-card :vehicle="$vehicle" />
                 @endforeach
             </div>
-        @else
-            <p class="text-zinc-600 dark:text-zinc-300 text-center">No cars available for the selected time.</p>
         @endif
     </div>
 </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RentACarController;
 use App\Http\Controllers\VehicleController;
+use App\Livewire\ShowRental;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('home'))->name('home');
@@ -29,3 +30,7 @@ Route::middleware('auth')->group(function() {
  */
 Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
 Route::get('/rent-a-car', [RentACarController::class, 'index'])->name('rent-a-car.index');
+
+Route::middleware('auth')->group(function() {
+    Route::get('/rent-a-car/{vehicle}', ShowRental::class);
+});

@@ -25,7 +25,7 @@
                         <flux:input name="password" type="password" placeholder="Your password" />
                     </flux:field>
 
-                    <flux:button type="submit" variant="primary" class="w-full">Sign In</flux:button>
+                    <flux:button type="submit" variant="primary" class="w-full">Sign Up</flux:button>
                 </form>
     
                 <flux:subheading class="text-center">

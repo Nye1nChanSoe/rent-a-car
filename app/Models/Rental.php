@@ -13,6 +13,8 @@ class Rental extends Model
     /** @use HasFactory<\Database\Factories\RentalFactory> */
     use HasFactory, HasUuids;
 
+    protected $guarded = [];
+
     // relations
     public function user(): BelongsTo
     {
