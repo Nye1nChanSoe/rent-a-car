@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Enums\PaymentMethod;
+use App\Enums\PaymentStatus;
 use App\Enums\RentalStatus;
 use App\Enums\VehicleStatus;
 use App\Models\Payment;
@@ -96,11 +97,11 @@ class ShowRental extends Component
                 [
                     'amount' => $this->totalPrice,
                     'payment_method' => PaymentMethod::CREDIT_CARD->value,
-                    'status' => 'paid',
+                    'status' => PaymentStatus::SUCCESS->value,
                 ]
             );
             DB::commit();
-            return redirect()->route('profile')->with('status', 'Booking completed successfully!');
+            return redirect()->route('profile.rents')->with('status', 'Booking completed successfully!');
         } catch (QueryException $e) {
             DB::rollBack();
             Log::error('Booking Transaction Failed: ' . $e->getMessage());

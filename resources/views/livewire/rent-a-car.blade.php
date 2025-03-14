@@ -9,11 +9,11 @@
             <flux:input wire:model.debounce.500ms="dropoffLocation" label="Drop-off Location" placeholder="Enter drop-off location" required />
 
             <div class="grid grid-cols-2 gap-4">
-                <flux:input wire:model.debounce.500ms="startTime" type="datetime-local" label="Start Time" required />
-                <flux:input wire:model.debounce.500ms="endTime" type="datetime-local" label="End Time" required />
+                <flux:input wire:model.live="startTime" type="datetime-local" label="Start Time" required />
+                <flux:input wire:model.live="endTime" type="datetime-local" label="End Time" required />
             </div>
 
-            <flux:select wire:model.debounce.500ms="ageRange" label="Driver's Age Range" required>
+            <flux:select wire:model.live="ageRange" label="Driver's Age Range" required>
                 <option value="">Select age range</option>
                 <option value="18-24">18-24</option>
                 <option value="25-34">25-34</option>

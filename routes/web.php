@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RentACarController;
 use App\Http\Controllers\VehicleController;
 use App\Livewire\ShowRental;
+use App\Livewire\UserRentals;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('home'))->name('home');
@@ -23,6 +24,7 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->group(function() {
     Route::post('/sign-out', [AuthController::class, 'logout'])->name('logout');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/rents', UserRentals::class)->name('profile.rents');
 });
 
 /**

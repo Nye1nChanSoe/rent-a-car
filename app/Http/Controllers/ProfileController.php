@@ -8,4 +8,9 @@ class ProfileController extends Controller
     {
         return view('profile.index');
     }
+
+    public function myRents()
+    {
+        return view('profile.rents');
+    }
 }
